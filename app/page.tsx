@@ -17,7 +17,7 @@ import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
 
 const highlights = [
-  { label: "Full-stack builds", value: "12+", icon: Layers3 },
+  { label: "Full-stack builds", value: "07+", icon: Layers3 },
   { label: "AI experiments", value: "08+", icon: BrainCircuit },
   { label: "Clean code focus", value: "100%", icon: Code2 },
 ];
@@ -61,7 +61,7 @@ export default function HomePage() {
                   dataCursor="Open"
                 />
                 <MagneticButton
-                  href="/resume/razib-dash-resume.pdf"
+                  href="/resume/cv.pdf"
                   label="Resume"
                   variant="ghost"
                   dataCursor="Open"

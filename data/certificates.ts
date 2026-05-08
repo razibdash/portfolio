@@ -7,10 +7,48 @@ export type Certificate = {
 };
 
 export const certificates: Certificate[] = [
-  { id: 'frontend-engineering', title: 'Frontend Engineering Fundamentals', issuer: 'Professional Learning', year: '2025', image: '/certificates/frontend-engineering.svg' },
-  { id: 'ai-product-building', title: 'AI Product Building', issuer: 'AI Learning Track', year: '2025', image: '/certificates/ai-product-building.svg' },
-  { id: 'full-stack-development', title: 'Full Stack Development', issuer: 'Developer Program', year: '2024', image: '/certificates/full-stack-development.svg' },
-  { id: 'typescript-practice', title: 'TypeScript for Web Apps', issuer: 'Code Practice Lab', year: '2024', image: '/certificates/typescript-practice.svg' },
-  { id: 'react-systems', title: 'React Component Systems', issuer: 'Frontend Lab', year: '2024', image: '/certificates/react-systems.svg' },
-  { id: 'database-basics', title: 'Database Design Basics', issuer: 'Backend Learning', year: '2024', image: '/certificates/database-basics.svg' }
+  {
+    id: "next.js-15",
+    title: "Next.js 15 Basic to advance",
+    issuer: "Professional Learning",
+    year: "2025",
+    image: "/certificates/certificates2.jpg",
+  },
+
+  {
+    id: "laravel",
+    title: "Laravel Career Launchpad for Absolute Beginner",
+    issuer: "Developer Program",
+    year: "2024",
+    image: "/certificates/laravelcrt.PNG",
+  },
+  {
+    id: "cyber",
+    title: "Technical Career counseling Webinar Session on Cyber Security",
+    issuer: "webinar",
+    year: "2024",
+    image: "/certificates/cyberCtr.PNG",
+  },
+
+  {
+    id: "data-science",
+    title: "Data Science Fundamentals",
+    issuer: "Data Science",
+    year: "2024",
+    image: "/certificates/datascienceCrt.PNG",
+  },
+  {
+    id: "ICPC",
+    title: "International Collegiate Programming Contest",
+    issuer: "Programming Contest",
+    year: "2023",
+    image: "/certificates/icpcCrt.PNG",
+  },
+  {
+    id: "sqa",
+    title: "SQA Workshop for Absolute Beginners",
+    issuer: "SQA",
+    year: "2025",
+    image: "/certificates/sqaCrt.PNG",
+  },
 ];

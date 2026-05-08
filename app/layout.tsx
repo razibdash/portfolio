@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+// @ts-ignore: side-effect import for global CSS
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -32,7 +33,9 @@ export const metadata: Metadata = {
   keywords: [
     "Razib Dash",
     "Software Developer",
+    "Software Engineer",
     "AI Enthusiast",
+    "Generative AI",
     "Next.js Developer",
     "Full Stack Developer",
   ],

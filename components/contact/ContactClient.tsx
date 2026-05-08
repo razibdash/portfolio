@@ -140,8 +140,7 @@ export function ContactClient() {
             )}
             {status === "success" && (
               <p className="mt-4 rounded-2xl border border-emerald-500/20 bg-emerald-500/10 p-3 text-sm text-emerald-700 dark:text-emerald-300">
-                Message validated successfully. Connect the API route to Resend,
-                Nodemailer, or your preferred email service for production.
+                Message validated successfully.
               </p>
             )}
 
