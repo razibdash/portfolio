@@ -5,6 +5,7 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffect } from "@/components/layout/BackgroundEffect";
 import { CommandPalette } from "@/components/layout/CommandPalette";
+import { ChatbotWidget } from "@/components/chatbot/ChatbotWidget";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
@@ -91,6 +92,7 @@ export default function RootLayout({
           <CustomCursor />
           <Navbar />
           <CommandPalette />
+          <ChatbotWidget />
           <main className="relative z-10 min-h-screen pt-24">{children}</main>
           <Footer />
           <BackToTop />
