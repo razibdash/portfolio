@@ -139,6 +139,7 @@ export async function POST(request: Request) {
         {
           answer:
             "Razib AI Assistant could not reach the AI service right now. Please try again later or contact Razib directly.",
+          error: `AI service error: ${response.status} ${response.statusText}`,
         },
         { status: 502 },
       );
