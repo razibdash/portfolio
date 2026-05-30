@@ -4,8 +4,12 @@ import {
   ArrowRight,
   BrainCircuit,
   Code2,
+  Download,
   ExternalLink,
+  Github,
   Layers3,
+  Linkedin,
+  Mail,
   Sparkles,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
@@ -13,6 +17,7 @@ import { MagneticButton } from "@/components/ui/MagneticButton";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
+import { ProjectBadges } from "@/components/projects/ProjectBadges";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
 
@@ -20,6 +25,36 @@ const highlights = [
   { label: "Full-stack builds", value: "07+", icon: Layers3 },
   { label: "AI experiments", value: "08+", icon: BrainCircuit },
   { label: "Clean code focus", value: "100%", icon: Code2 },
+];
+
+const recruiterSummary = [
+  "Junior Software Developer",
+  "Full Stack Developer",
+  "AI-focused Developer",
+];
+
+const coreStack = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Node.js",
+  "Laravel",
+  "FastAPI",
+  "TailwindCSS",
+];
+
+const focusAreas = [
+  "Healthcare software",
+  "AI integrations",
+  "Automation",
+  "Dashboards",
+];
+
+const currentlyBuilding = [
+  "AI-powered EMR features",
+  "RAG-based chatbot systems",
+  "Browser automation tools",
+  "Full-stack healthcare dashboards",
 ];
 
 export default function HomePage() {
@@ -105,6 +140,141 @@ export default function HomePage() {
         </StaggerGroup>
       </Container>
 
+      <section className="border-y border-line bg-white/45 py-16 backdrop-blur dark:bg-slate-950/30">
+        <Container>
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
+            <Reveal>
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-[0.35em] text-brand-600 dark:text-brand-300">
+                  For Recruiters
+                </p>
+                <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
+                  Ready to contribute to practical full-stack and AI product teams.
+                </h2>
+                <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
+                  I am focused on junior software developer roles where I can
+                  build reliable interfaces, connect backend systems, and add
+                  useful AI features with clear product thinking.
+                </p>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <MagneticButton
+                    href="/resume/cv.pdf"
+                    label="Download Resume"
+                    icon={<Download className="h-4 w-4" />}
+                    dataCursor="Open"
+                    download
+                  />
+                  <MagneticButton
+                    href="/contact"
+                    label="Contact"
+                    icon={<Mail className="h-4 w-4" />}
+                    variant="secondary"
+                    dataCursor="Open"
+                  />
+                </div>
+                <div className="mt-5 flex flex-wrap gap-3">
+                  <Link
+                    href="https://github.com/razibdash"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-brand-600 dark:hover:text-brand-300"
+                    data-cursor="Open"
+                  >
+                    <Github className="h-4 w-4" /> GitHub
+                  </Link>
+                  <Link
+                    href="https://www.linkedin.com/in/razibdash/"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-brand-600 dark:hover:text-brand-300"
+                    data-cursor="Open"
+                  >
+                    <Linkedin className="h-4 w-4" /> LinkedIn
+                  </Link>
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <div className="rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur dark:bg-slate-950/45">
+                  <h3 className="font-display text-xl font-semibold">
+                    Target Roles
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {recruiterSummary.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-line bg-paper px-3 py-1 text-sm text-muted"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur dark:bg-slate-950/45">
+                  <h3 className="font-display text-xl font-semibold">
+                    Core Stack
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {coreStack.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-line bg-paper px-3 py-1 text-sm text-muted"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur dark:bg-slate-950/45 sm:col-span-2">
+                  <h3 className="font-display text-xl font-semibold">
+                    Focus Areas
+                  </h3>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {focusAreas.map((item) => (
+                      <span
+                        key={item}
+                        className="rounded-full border border-line bg-paper px-3 py-1 text-sm text-muted"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <Container className="py-16">
+        <div className="grid gap-8 lg:grid-cols-[0.65fr_1.35fr]">
+          <Reveal>
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.35em] text-brand-600 dark:text-brand-300">
+                Currently Building
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-[-0.04em] md:text-4xl">
+                Active work that matches my next developer role.
+              </h2>
+            </div>
+          </Reveal>
+          <StaggerGroup className="grid gap-4 sm:grid-cols-2">
+            {currentlyBuilding.map((item) => (
+              <div
+                key={item}
+                className="rounded-3xl border border-line bg-white/65 p-5 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-soft dark:bg-slate-950/45"
+                data-cursor="View"
+              >
+                <Sparkles className="h-5 w-5 text-brand-600 dark:text-brand-300" />
+                <p className="mt-4 font-semibold">{item}</p>
+              </div>
+            ))}
+          </StaggerGroup>
+        </div>
+      </Container>
+
       <section className="border-y border-line bg-white/45 py-20 backdrop-blur dark:bg-slate-950/30">
         <Container>
           <SectionHeading
@@ -140,6 +310,7 @@ export default function HomePage() {
                 <p className="mt-3 text-sm leading-6 text-muted">
                   {project.summary}
                 </p>
+                <ProjectBadges badges={project.badges.slice(0, 3)} className="mt-4" />
               </Link>
             ))}
           </StaggerGroup>

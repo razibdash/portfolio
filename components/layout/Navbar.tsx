@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, Moon, Sun, X } from "lucide-react";
@@ -36,7 +37,7 @@ export function Navbar() {
           onClick={() => setOpen(false)}
         >
           <span className="grid h-10 w-10 place-items-center rounded-2xl bg-brand-600 font-display font-semibold text-white shadow-glow">
-            <img src="/rd.PNG" alt="Razib Dash" />
+            <Image src="/rd.PNG" alt="Razib Dash" width={40} height={40} />
           </span>
           <span className="font-display text-lg font-semibold tracking-tight">
             Razib Dash

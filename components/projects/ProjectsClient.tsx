@@ -7,24 +7,18 @@ import { ExternalLink } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
-import { projects, type ProjectCategory } from "@/data/projects";
+import { ProjectBadges } from "@/components/projects/ProjectBadges";
+import { projectFilters, projects, type ProjectFilter } from "@/data/projects";
 import { cn } from "@/lib/utils";
 
-const filters: Array<"All" | ProjectCategory> = [
-  "All",
-  "AI",
-  "Web",
-  "Full Stack",
-];
-
 export function ProjectsClient() {
-  const [active, setActive] = useState<"All" | ProjectCategory>("All");
+  const [active, setActive] = useState<"All" | ProjectFilter>("All");
 
   const filteredProjects = useMemo(
     () =>
       active === "All"
         ? projects
-        : projects.filter((project) => project.category === active),
+        : projects.filter((project) => project.filters.includes(active)),
     [active],
   );
 
@@ -36,13 +30,19 @@ export function ProjectsClient() {
         description="Filter by project type and open detailed pages with tech stack, screenshots, GitHub links, and live demos."
       />
 
-      <div className="mt-9 flex flex-wrap gap-3">
-        {filters.map((filter) => (
+      <div
+        className="mt-9 flex gap-3 overflow-x-auto pb-2 sm:flex-wrap sm:overflow-visible sm:pb-0"
+        role="tablist"
+        aria-label="Project filters"
+      >
+        {projectFilters.map((filter) => (
           <button
             key={filter}
             onClick={() => setActive(filter)}
+            role="tab"
+            aria-selected={active === filter}
             className={cn(
-              "rounded-full border border-line px-4 py-2 text-sm font-semibold text-muted transition hover:border-brand-500 hover:text-brand-700 dark:hover:text-brand-300",
+              "shrink-0 rounded-full border border-line px-4 py-2 text-sm font-semibold text-muted transition hover:border-brand-500 hover:text-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500/40 dark:hover:text-brand-300",
               active === filter &&
                 "border-brand-500 bg-brand-500/10 text-brand-700 dark:text-brand-300",
             )}
@@ -58,50 +58,58 @@ export function ProjectsClient() {
         className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3"
       >
         {filteredProjects.map((project) => (
-          <Link
-            href={`/projects/${project.slug}`}
-            key={project.slug}
-            className="group rounded-[2rem] backdrop-blur transition hover:-translate-y-2 hover:shadow-soft dark:bg-slate-950/50"
-            data-cursor="View"
-          >
-            <div className="overflow-hidden rounded-2xl bg-brand-500/5">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={720}
-                height={460}
-                className="transition duration-500 group-hover:scale-105"
-              />
-            </div>
-
-            <div className="mt-5 flex items-start justify-between gap-4">
-              <div>
-                <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-600 dark:text-brand-300">
-                  {project.category}
-                </p>
-                <h2 className="mt-2 font-display text-xl font-semibold tracking-tight">
-                  {project.title}
-                </h2>
+          <article key={project.slug} className="h-full">
+            <Link
+              href={`/projects/${project.slug}`}
+              className="group flex h-full flex-col p-4 rounded-[2rem] backdrop-blur transition hover:-translate-y-1 hover:shadow-soft hover:p-4 dark:bg-slate-950/50"
+              data-cursor="View"
+            >
+              <div className="overflow-hidden rounded-2xl bg-brand-500/5">
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={720}
+                  height={460}
+                  className="aspect-[1.56] object-cover transition duration-500 group-hover:scale-105"
+                />
               </div>
 
-              <ExternalLink className="h-5 w-5 shrink-0 text-muted transition group-hover:text-brand-600 dark:group-hover:text-brand-300" />
-            </div>
+              <div className="mt-5 flex items-start justify-between gap-4">
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.28em] text-brand-600 dark:text-brand-300">
+                    {project.category}
+                  </p>
+                  <h2 className="mt-2 font-display text-xl font-semibold tracking-tight">
+                    {project.title}
+                  </h2>
+                </div>
 
-            <p className="mt-3 text-sm leading-6 text-muted">
-              {project.summary}
-            </p>
+                <ExternalLink className="h-5 w-5 shrink-0 text-muted transition group-hover:text-brand-600 dark:group-hover:text-brand-300" />
+              </div>
 
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.stack.slice(0, 4).map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-line bg-paper px-3 py-1 text-xs text-muted"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-          </Link>
+              <ProjectBadges
+                badges={project.badges.slice(0, 3)}
+                className="mt-4"
+              />
+
+              <p className="mt-3 text-sm leading-6 text-muted">
+                {project.summary}
+              </p>
+
+              <div className="mt-auto pt-5">
+                <div className="flex flex-wrap gap-2">
+                  {project.stack.slice(0, 4).map((tech) => (
+                    <span
+                      key={tech}
+                      className="rounded-full border border-line bg-paper px-3 py-1 text-xs text-muted"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </Link>
+          </article>
         ))}
       </StaggerGroup>
 

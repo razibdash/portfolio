@@ -1,10 +1,10 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
-// @ts-ignore: side-effect import for global CSS
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { BackgroundEffect } from "@/components/layout/BackgroundEffect";
+import { CommandPalette } from "@/components/layout/CommandPalette";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
@@ -90,6 +90,7 @@ export default function RootLayout({
           <ScrollProgress />
           <CustomCursor />
           <Navbar />
+          <CommandPalette />
           <main className="relative z-10 min-h-screen pt-24">{children}</main>
           <Footer />
           <BackToTop />
