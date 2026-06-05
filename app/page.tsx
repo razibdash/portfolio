@@ -157,13 +157,13 @@ export default function HomePage() {
                 Razib Dash
               </h1>
               <p className="mt-5 text-xl font-medium text-brand-700 dark:text-brand-300 md:text-2xl">
-                Software Engineer | CSE Graduate | AI Integration Specialist
+                Software Engineer | AI Integration Specialist
               </p>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
                 I am a Software Engineer and CSE graduate from Metropolitan
                 University Bangladesh. I help businesses launch Ecommerce
-                website, Travel website, Clinic/EMR system, AI chatbot,
-                Business dashboard, and Custom web app solutions that are fast,
+                website, Travel website, Clinic/EMR system, AI chatbot, Business
+                dashboard, and Custom web app solutions that are fast,
                 responsive, and useful.
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
