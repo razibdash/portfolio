@@ -3,7 +3,7 @@ import { ContactClient } from '@/components/contact/ContactClient';
 
 export const metadata: Metadata = {
   title: 'Contact',
-  description: 'Contact Razib Dash for software development, AI projects, collaboration, and hiring opportunities.'
+  description: 'Send a project request to Razib Dash for websites, web apps, dashboards, AI chatbots, automation tools, ecommerce, and clinic EMR systems.'
 };
 
 export default function ContactPage() {
