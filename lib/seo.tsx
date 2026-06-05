@@ -107,24 +107,22 @@ export const personJsonLd = {
   "@type": "Person",
   name: "Razib Dash",
   url: siteUrl,
-  image: absoluteUrl("/razibdash.png"),
-  jobTitle: "Software Engineer and AI Integration Specialist",
-  alumniOf: {
-    "@type": "CollegeOrUniversity",
-    name: "Metropolitan University Bangladesh",
-  },
-  hasCredential: {
-    "@type": "EducationalOccupationalCredential",
-    credentialCategory: "BSc in Computer Science and Engineering",
-  },
-  email: "mailto:avrorazib@gmail.com",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Sylhet",
-    addressCountry: "BD",
-  },
-  sameAs: ["https://github.com/razibdash", "https://www.linkedin.com/in/razibdash/"],
-  knowsAbout: seoKeywords,
+  jobTitle: "Software Engineer, AI Web Developer, Full-Stack Developer",
+  description:
+    "Razib Dash is an Software Engineer in Bangladesh building websites, dashboards, AI chatbots, EMR software, custom web apps, and automation tools.",
+  sameAs: [
+    "https://github.com/razibdash",
+    "https://www.linkedin.com/in/razibdash",
+    "https://www.facebook.com/avronilrajib",
+    "https://www.instagram.com/razibdash",
+    "https://www.youtube.com/@razib-dash",
+    "https://www.tumblr.com/razibdash",
+    "https://bsky.app/profile/razibdash.bsky.social",
+    "https://www.threads.com/@razibdash",
+    "https://dribbble.com/razibdash",
+    "https://codeforces.com/profile/avronilrajib",
+    "https://www.behance.net/razibdash",
+  ],
 };
 
 export const professionalServiceJsonLd = {

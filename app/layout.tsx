@@ -111,9 +111,8 @@ export default function RootLayout({
           <ScrollProgress />
           <CustomCursor />
           <Navbar />
-          <JsonLd
-            data={[personJsonLd, professionalServiceJsonLd, websiteJsonLd]}
-          />
+          <JsonLd data={personJsonLd} />
+          <JsonLd data={[professionalServiceJsonLd, websiteJsonLd]} />
           <CommandPalette />
           <ChatbotWidget />
           <main className="relative z-10 min-h-screen pt-24">{children}</main>
