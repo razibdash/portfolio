@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Bot, MessageCircle } from "lucide-react";
+import { MessageCircle } from "lucide-react";
 import { motion } from "framer-motion";
 import { ChatWindow } from "@/components/chatbot/ChatWindow";
 import type { ChatMessageItem } from "@/components/chatbot/ChatMessage";
@@ -138,18 +138,20 @@ export function ChatbotWidget() {
         onSend={sendMessage}
       />
 
-      <motion.button
-        type="button"
-        onClick={() => setOpen((value) => !value)}
-        whileHover={{ y: -3 }}
-        whileTap={{ scale: 0.96 }}
-        className="fixed bottom-6 right-4 z-[70] inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-white shadow-glow transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500/40 sm:right-6"
-        aria-label={open ? "Close Razib AI Assistant" : "Open Razib AI Assistant"}
-        aria-expanded={open}
-        data-cursor="Chat"
-      >
-        {open ? <Bot className="h-6 w-6" /> : <MessageCircle className="h-6 w-6" />}
-      </motion.button>
+      {!open && (
+        <motion.button
+          type="button"
+          onClick={() => setOpen(true)}
+          whileHover={{ y: -3 }}
+          whileTap={{ scale: 0.96 }}
+          className="fixed bottom-6 right-4 z-[70] box-border inline-flex h-14 w-14 items-center justify-center rounded-full bg-brand-600 text-white shadow-glow transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500/40 sm:right-6"
+          aria-label="Open Razib AI Assistant"
+          aria-expanded={open}
+          data-cursor="Chat"
+        >
+          <MessageCircle className="h-6 w-6" />
+        </motion.button>
+      )}
     </>
   );
 }

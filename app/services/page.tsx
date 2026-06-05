@@ -41,6 +41,7 @@ import { PricingCard } from "@/components/ui/PricingCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
+import { LeadGenerationSections } from "@/components/lead/LeadGenerationSections";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -550,6 +551,8 @@ export default function ServicesPage() {
           </Reveal>
         </Container>
       </section>
+
+      <LeadGenerationSections />
 
       <section className="border-y border-line bg-white/45 py-20 backdrop-blur dark:bg-slate-950/30">
         <Container>

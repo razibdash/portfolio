@@ -10,6 +10,8 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { CustomCursor } from "@/components/ui/CustomCursor";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
+import { WhatsAppFloatingButton } from "@/components/lead/WhatsAppFloatingButton";
+import { ExitIntentPopup } from "@/components/lead/ExitIntentPopup";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -95,6 +97,8 @@ export default function RootLayout({
           <ChatbotWidget />
           <main className="relative z-10 min-h-screen pt-24">{children}</main>
           <Footer />
+          <WhatsAppFloatingButton />
+          <ExitIntentPopup />
           <BackToTop />
         </ThemeProvider>
       </body>
