@@ -4,7 +4,6 @@ import {
   ArrowRight,
   Bot,
   BriefcaseBusiness,
-  CalendarCheck2,
   CheckCircle2,
   ClipboardList,
   Code2,
@@ -28,6 +27,7 @@ import {
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
 import { MagneticButton } from "@/components/ui/MagneticButton";
+import { PricingCard } from "@/components/ui/PricingCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
@@ -142,14 +142,92 @@ const processSteps = [
   { title: "Support", icon: ShieldCheck },
 ];
 
-const pricing = [
-  { title: "Landing Page", price: "$100+", icon: FileCheck2 },
-  { title: "Business Website", price: "$200+", icon: Store },
-  { title: "Ecommerce Website", price: "$400+", icon: PackageCheck },
-  { title: "Dashboard / Admin Panel", price: "$300+", icon: LayoutDashboard },
-  { title: "AI Chatbot", price: "$250+", icon: MessagesSquare },
-  { title: "Clinic / EMR System", price: "$700+", icon: CalendarCheck2 },
-  { title: "Custom Web App", price: "Custom Quote", icon: Settings2 },
+const pricingPackages = [
+  {
+    title: "Landing Page",
+    price: "$100+",
+    bestFor: "Personal portfolio, small business, product page",
+    features: [
+      "1 responsive page",
+      "Modern UI design",
+      "Contact form",
+      "Basic SEO",
+      "Deployment support",
+    ],
+    ctaLabel: "Get Started",
+    icon: FileCheck2,
+  },
+  {
+    title: "Business Website",
+    price: "$200+",
+    bestFor: "Company, agency, service business",
+    features: [
+      "3-5 pages",
+      "Responsive design",
+      "Contact form",
+      "Basic animations",
+      "SEO setup",
+    ],
+    ctaLabel: "Get Started",
+    icon: Store,
+    popular: true,
+  },
+  {
+    title: "Ecommerce Website",
+    price: "$400+",
+    bestFor: "Online store",
+    features: [
+      "Product listing",
+      "Cart system",
+      "Checkout flow",
+      "Order management",
+      "Admin dashboard",
+    ],
+    ctaLabel: "Get Started",
+    icon: PackageCheck,
+  },
+  {
+    title: "Dashboard / Admin Panel",
+    price: "$300+",
+    bestFor: "Business tools and management systems",
+    features: [
+      "Login system",
+      "Role-based access",
+      "Data tables",
+      "Charts/reports",
+      "Export option",
+    ],
+    ctaLabel: "Get Started",
+    icon: LayoutDashboard,
+  },
+  {
+    title: "AI Chatbot",
+    price: "$250+",
+    bestFor: "Website support, FAQ, lead collection",
+    features: [
+      "OpenAI API integration",
+      "FAQ chatbot",
+      "Lead capture",
+      "Website integration",
+      "Basic admin control",
+    ],
+    ctaLabel: "Get Started",
+    icon: MessagesSquare,
+  },
+  {
+    title: "Custom Web App",
+    price: "Custom Quote",
+    bestFor: "Startup MVP, automation, complex system",
+    features: [
+      "Frontend + backend",
+      "Database",
+      "Authentication",
+      "API integration",
+      "Deployment support",
+    ],
+    ctaLabel: "Request Quote",
+    icon: Settings2,
+  },
 ];
 
 const faqs = [
@@ -319,31 +397,27 @@ export default function ServicesPage() {
         <Container>
           <SectionHeading
             eyebrow="Pricing"
-            title="Starting Prices"
-            description="Final price depends on features, timeline, and project scope."
+            title="Pricing & Packages"
+            description="Choose a package based on your project needs. Final price may vary depending on features, timeline, and complexity."
           />
 
-          <StaggerGroup className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {pricing.map((item) => (
-              <div
+          <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {pricingPackages.map((item) => (
+              <PricingCard
                 key={item.title}
-                className="rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-soft dark:bg-slate-950/45"
-              >
-                <item.icon className="h-6 w-6 text-brand-600 dark:text-brand-300" />
-                <h3 className="mt-5 font-display text-xl font-semibold">
-                  {item.title}
-                </h3>
-                <p className="mt-4 text-3xl font-semibold tracking-tight text-brand-700 dark:text-brand-300">
-                  {item.price}
-                </p>
-              </div>
+                href="/contact"
+                {...item}
+              />
             ))}
           </StaggerGroup>
 
           <Reveal>
             <div className="mt-8 flex items-start gap-3 rounded-3xl border border-line bg-paper/75 p-5 text-sm text-muted shadow-sm backdrop-blur">
               <ListChecks className="mt-0.5 h-5 w-5 shrink-0 text-brand-600 dark:text-brand-300" />
-              <p>Final price depends on features, timeline, and project scope.</p>
+              <p>
+                Final price may vary depending on features, timeline, and
+                complexity.
+              </p>
             </div>
           </Reveal>
         </Container>

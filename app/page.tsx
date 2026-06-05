@@ -85,32 +85,38 @@ const services = [
 const audiences = [
   {
     title: "Small Businesses",
-    description: "Modern websites and tools that help local teams win trust and capture leads.",
+    description:
+      "Modern websites and tools that help local teams win trust and capture leads.",
     icon: Store,
   },
   {
     title: "Clinics & Healthcare",
-    description: "Patient-friendly systems for clinical workflows, records, and daily operations.",
+    description:
+      "Patient-friendly systems for clinical workflows, records, and daily operations.",
     icon: HeartPulse,
   },
   {
     title: "Travel Agencies",
-    description: "Travel sites that present packages clearly and make inquiries easy.",
+    description:
+      "Travel sites that present packages clearly and make inquiries easy.",
     icon: Plane,
   },
   {
     title: "Ecommerce Brands",
-    description: "Storefronts, dashboards, and automations for selling with less friction.",
+    description:
+      "Storefronts, dashboards, and automations for selling with less friction.",
     icon: ShoppingCart,
   },
   {
     title: "Startups",
-    description: "MVPs, internal tools, and launch-ready apps built with speed and clarity.",
+    description:
+      "MVPs, internal tools, and launch-ready apps built with speed and clarity.",
     icon: Rocket,
   },
   {
     title: "Agencies",
-    description: "Reliable development support for client sites, dashboards, and AI features.",
+    description:
+      "Reliable development support for client sites, dashboards, and AI features.",
     icon: Building2,
   },
 ];
@@ -139,7 +145,7 @@ export default function HomePage() {
                 Client-focused web development with practical AI
               </div>
               <h1 className="mt-8 max-w-4xl font-display text-4xl font-semibold tracking-[-0.04em] md:text-6xl lg:text-7xl">
-                I build AI-powered websites, web apps, dashboards, and automation tools for businesses.
+                Razib Dash
               </h1>
               <p className="mt-5 text-xl font-medium text-brand-700 dark:text-brand-300 md:text-2xl">
                 Software Developer | AI Integration Specialist
@@ -301,7 +307,8 @@ export default function HomePage() {
                   Why Work With Me
                 </p>
                 <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
-                  Clean execution from idea to launch, with AI where it actually helps.
+                  Clean execution from idea to launch, with AI where it actually
+                  helps.
                 </h2>
                 <p className="mt-5 max-w-2xl text-lg leading-8 text-muted">
                   You get full-stack product thinking, responsive UI, practical
@@ -392,7 +399,10 @@ export default function HomePage() {
                 <p className="mt-3 text-sm leading-6 text-muted">
                   {project.summary}
                 </p>
-                <ProjectBadges badges={project.badges.slice(0, 3)} className="mt-4" />
+                <ProjectBadges
+                  badges={project.badges.slice(0, 3)}
+                  className="mt-4"
+                />
               </Link>
             ))}
           </StaggerGroup>
