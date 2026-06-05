@@ -42,6 +42,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { LeadGenerationSections } from "@/components/lead/LeadGenerationSections";
+import { ServiceVisualSections } from "@/components/services/ServiceVisualSections";
 import {
   absoluteUrl,
   breadcrumbJsonLd,
@@ -482,11 +483,11 @@ export default function ServicesPage() {
             {services.map((service) => (
               <div
                 key={service.title}
-                className="flex h-full flex-col rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur transition hover:-translate-y-1 hover:shadow-soft dark:bg-slate-950/45 md:p-7"
+                className="group flex h-full flex-col rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-brand-500/40 hover:shadow-soft dark:bg-slate-950/45 md:p-7"
                 data-cursor="View"
               >
                 <div className="flex items-start gap-4">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-700 dark:text-brand-300">
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-700 transition duration-300 group-hover:scale-110 group-hover:bg-brand-600 group-hover:text-white dark:text-brand-300">
                     <service.icon className="h-6 w-6" />
                   </span>
                   <div>
@@ -602,6 +603,8 @@ export default function ServicesPage() {
           </Reveal>
         </Container>
       </section>
+
+      <ServiceVisualSections />
 
       <LeadGenerationSections />
 

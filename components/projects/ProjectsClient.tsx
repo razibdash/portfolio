@@ -10,6 +10,7 @@ import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { ProjectBadges } from "@/components/projects/ProjectBadges";
 import { projectFilters, projects, type ProjectFilter } from "@/data/projects";
 import { cn } from "@/lib/utils";
+import { TechStackBadges } from "@/components/ui/TechStackBadges";
 
 export function ProjectsClient() {
   const [active, setActive] = useState<"All" | ProjectFilter>("All");
@@ -61,7 +62,7 @@ export function ProjectsClient() {
           <article key={project.slug} className="h-full">
             <Link
               href={`/projects/${project.slug}`}
-              className="group flex h-full flex-col p-4 rounded-[2rem] backdrop-blur transition hover:-translate-y-1 hover:shadow-soft hover:p-4 dark:bg-slate-950/50"
+              className="group flex h-full flex-col rounded-[2rem] border border-transparent p-4 backdrop-blur transition duration-300 hover:-translate-y-1 hover:border-line hover:bg-white/60 hover:shadow-soft dark:hover:bg-slate-950/50"
               data-cursor="View"
             >
               <div className="overflow-hidden rounded-2xl bg-brand-500/5">
@@ -97,16 +98,7 @@ export function ProjectsClient() {
               </p>
 
               <div className="mt-auto pt-5">
-                <div className="flex flex-wrap gap-2">
-                  {project.stack.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="rounded-full border border-line bg-paper px-3 py-1 text-xs text-muted"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                <TechStackBadges items={project.stack} limit={4} />
               </div>
             </Link>
           </article>

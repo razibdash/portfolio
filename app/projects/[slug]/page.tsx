@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import type { ReactNode } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
@@ -15,6 +14,9 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/motion/Reveal";
 import { FlowDiagram } from "@/components/projects/FlowDiagram";
 import { ProjectBadges } from "@/components/projects/ProjectBadges";
+import { ProjectScreenshotCarousel } from "@/components/projects/ProjectScreenshotCarousel";
+import { VideoPreviewModal } from "@/components/projects/VideoPreviewModal";
+import { TechStackBadges } from "@/components/ui/TechStackBadges";
 import { projects, type ProjectLink } from "@/data/projects";
 import {
   absoluteUrl,
@@ -164,6 +166,10 @@ export default async function ProjectDetailsPage({ params }: Props) {
               Project Links
             </p>
             <div className="mt-5 flex flex-col gap-3">
+              <VideoPreviewModal
+                title={project.title}
+                videoUrl={project.demoVideoUrl}
+              />
               <LinkAction
                 link={caseStudy.links.github}
                 icon={<Github className="h-4 w-4" />}
@@ -189,14 +195,10 @@ export default async function ProjectDetailsPage({ params }: Props) {
       </div>
 
       <Reveal>
-        <div className="mt-12 overflow-hidden rounded-[2rem] border border-line bg-white/65 p-3 shadow-soft dark:bg-slate-950/50">
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={1400}
-            height={850}
-            priority
-            className="aspect-[1.65] rounded-[1.5rem] object-cover"
+        <div className="mt-12">
+          <ProjectScreenshotCarousel
+            title={project.title}
+            images={project.screenshots ?? [project.image]}
           />
         </div>
       </Reveal>
@@ -241,16 +243,7 @@ export default async function ProjectDetailsPage({ params }: Props) {
         <Reveal>
           <section className="rounded-3xl border border-line bg-white/65 p-7 shadow-sm backdrop-blur dark:bg-slate-950/45">
             <h2 className="font-display text-2xl font-semibold">Tech Stack</h2>
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.stack.map((tech) => (
-                <span
-                  key={tech}
-                  className="rounded-full border border-line bg-paper px-3 py-1 text-sm text-muted"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
+            <TechStackBadges items={project.stack} className="mt-5" />
           </section>
         </Reveal>
 

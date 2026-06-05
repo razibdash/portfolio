@@ -1,12 +1,13 @@
 export type ProjectCategory = "AI" | "Web" | "Full Stack";
 
 export type ProjectFilter =
-  | "Full Stack"
+  | "Web App"
+  | "Ecommerce"
+  | "Travel"
   | "AI"
-  | "Healthcare"
-  | "Browser Extension"
-  | "Backend"
-  | "RAG";
+  | "Dashboard"
+  | "Healthcare / EMR"
+  | "Automation";
 
 export type ProjectLink = {
   label: string;
@@ -55,6 +56,8 @@ export type Project = {
   stack: string[];
   features: string[];
   image: string;
+  screenshots?: string[];
+  demoVideoUrl?: string;
   featured: boolean;
   highlights: string[];
   badges: string[];
@@ -65,12 +68,13 @@ export type Project = {
 
 export const projectFilters: Array<"All" | ProjectFilter> = [
   "All",
-  "Full Stack",
+  "Web App",
+  "Ecommerce",
+  "Travel",
   "AI",
-  "Healthcare",
-  "Browser Extension",
-  "Backend",
-  "RAG",
+  "Dashboard",
+  "Healthcare / EMR",
+  "Automation",
 ];
 
 export const projects: Project[] = [
@@ -92,10 +96,15 @@ export const projects: Project[] = [
       "Laravel",
     ],
     image: "/projects/globahealthEMR.PNG",
+    screenshots: [
+      "/projects/globahealthEMR.PNG",
+      "/projects/emrac.png",
+      "/projects/saas-dashboard.svg",
+    ],
     featured: true,
     status: "In Development",
     badges: ["Healthcare", "Full Stack", "AI Powered", "Private Code"],
-    filters: ["Full Stack", "AI", "Healthcare", "Backend"],
+    filters: ["Web App", "AI", "Dashboard", "Healthcare / EMR"],
     highlights: [
       "Patient management system with secure record keeping.",
       "Appointment scheduling with clinic workflow support.",
@@ -184,10 +193,15 @@ export const projects: Project[] = [
       "Groq",
     ],
     image: "/projects/eapplylogo.PNG",
+    screenshots: [
+      "/projects/eapplylogo.PNG",
+      "/projects/taskflow.svg",
+      "/projects/portfolio-platform.svg",
+    ],
     featured: true,
     status: "In Development",
     badges: ["AI Powered", "Browser Extension", "Automation", "Private Code"],
-    filters: ["AI", "Browser Extension", "Backend"],
+    filters: ["Web App", "AI", "Automation"],
     highlights: [
       "AI-powered data extraction from resumes, certificates, job descriptions, and images.",
       "Autofill workflow for visa, university, job, and other application forms.",
@@ -264,10 +278,15 @@ export const projects: Project[] = [
       "Chart.js",
     ],
     image: "/projects/emrac.png",
+    screenshots: [
+      "/projects/emrac.png",
+      "/projects/globahealthEMR.PNG",
+      "/projects/saas-dashboard.svg",
+    ],
     featured: true,
     status: "In Development",
     badges: ["Healthcare", "Full Stack", "Backend", "Private Code"],
-    filters: ["Full Stack", "Healthcare", "Backend"],
+    filters: ["Web App", "Dashboard", "Healthcare / EMR"],
     highlights: [
       "Integrated accounting and EMR workflow management.",
       "Secure patient billing and financial transaction system.",
@@ -363,10 +382,15 @@ export const projects: Project[] = [
       "PDF Processing",
     ],
     image: "/projects/aq-creator.png",
+    screenshots: [
+      "/projects/aq-creator.png",
+      "/projects/ai-study-assistant.svg",
+      "/projects/ai-resume-reviewer.svg",
+    ],
     featured: true,
     status: "Open Source",
     badges: ["AI Powered", "RAG", "Backend", "Open Source"],
-    filters: ["AI", "RAG", "Backend"],
+    filters: ["Web App", "AI", "Automation"],
     highlights: [
       "Upload and process PDF documents seamlessly.",
       "Automatic AI-generated question and answer creation.",
@@ -466,10 +490,15 @@ export const projects: Project[] = [
       "FastAPI",
     ],
     image: "/projects/mu-chatbot.png",
+    screenshots: [
+      "/projects/mu-chatbot.png",
+      "/projects/ai-study-assistant.svg",
+      "/projects/portfolio-platform.svg",
+    ],
     featured: true,
     status: "Open Source",
     badges: ["AI Powered", "RAG", "Backend", "Open Source"],
-    filters: ["AI", "RAG", "Backend"],
+    filters: ["Web App", "AI", "Automation"],
     highlights: [
       "AI-powered assistant for Metropolitan University students.",
       "Instant responses for academic and campus-related queries.",

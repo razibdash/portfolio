@@ -32,6 +32,7 @@ import { ProjectBadges } from "@/components/projects/ProjectBadges";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
 import { createPageMetadata } from "@/lib/seo";
+import { TechStackBadges } from "@/components/ui/TechStackBadges";
 
 export const metadata: Metadata = createPageMetadata({
   title: "AI Web Developer for Websites, Dashboards & Automation",
@@ -432,16 +433,7 @@ export default function HomePage() {
                 <h3 className="font-display text-xl font-semibold">
                   {group.category}
                 </h3>
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {group.items.slice(0, 8).map((skill) => (
-                    <span
-                      key={skill}
-                      className="rounded-full border border-line bg-paper px-3 py-1 text-sm text-muted"
-                    >
-                      {skill}
-                    </span>
-                  ))}
-                </div>
+                <TechStackBadges items={group.items} limit={8} className="mt-5" />
               </div>
             </Reveal>
           ))}
