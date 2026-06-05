@@ -12,7 +12,6 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { WhatsAppFloatingButton } from "@/components/lead/WhatsAppFloatingButton";
 import { ExitIntentPopup } from "@/components/lead/ExitIntentPopup";
-import { StickyProjectCTA } from "@/components/lead/StickyProjectCTA";
 import {
   defaultOgImage,
   JsonLd,
@@ -112,12 +111,13 @@ export default function RootLayout({
           <ScrollProgress />
           <CustomCursor />
           <Navbar />
-          <JsonLd data={[personJsonLd, professionalServiceJsonLd, websiteJsonLd]} />
+          <JsonLd
+            data={[personJsonLd, professionalServiceJsonLd, websiteJsonLd]}
+          />
           <CommandPalette />
           <ChatbotWidget />
           <main className="relative z-10 min-h-screen pt-24">{children}</main>
           <Footer />
-          <StickyProjectCTA />
           <WhatsAppFloatingButton />
           <ExitIntentPopup />
           <BackToTop />
