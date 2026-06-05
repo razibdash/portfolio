@@ -11,6 +11,7 @@ import { useTheme } from "@/components/providers/ThemeProvider";
 const navItems = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
   { href: "/projects", label: "Projects" },
   { href: "/skills", label: "Skills" },
   { href: "/experience", label: "Experience" },

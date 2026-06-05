@@ -10,6 +10,7 @@ import {
   Mail,
   Newspaper,
   Search,
+  Sparkles,
   User,
   X,
 } from "lucide-react";
@@ -18,6 +19,7 @@ import { cn } from "@/lib/utils";
 const commands = [
   { label: "Home", href: "/", icon: Home },
   { label: "About", href: "/about", icon: User },
+  { label: "Services", href: "/services", icon: Sparkles },
   { label: "Projects", href: "/projects", icon: BriefcaseBusiness },
   { label: "Skills", href: "/skills", icon: Code2 },
   { label: "Experience", href: "/experience", icon: BriefcaseBusiness },
