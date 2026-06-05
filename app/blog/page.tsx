@@ -5,11 +5,15 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/motion/Reveal';
 import { blogs } from '@/data/blogs';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Technical blog posts by Razib Dash about software development, AI, and product engineering.'
-};
+export const metadata: Metadata = createPageMetadata({
+  title: 'Blog on AI, Web Development & Automation',
+  description:
+    'Read client-focused articles by Razib Dash about AI chatbots, clinic EMR software, ecommerce websites, business dashboards, custom web apps, MVP development, and AI automation.',
+  path: '/blog',
+  keywords: ['AI chatbot blog', 'EMR software blog', 'business automation articles'],
+});
 
 export default function BlogPage() {
   return (
@@ -26,7 +30,7 @@ export default function BlogPage() {
               <div className="mt-4 flex items-start justify-between gap-6">
                 <div>
                   <h2 className="font-display text-2xl font-semibold tracking-tight md:text-3xl">{post.title}</h2>
-                  <p className="mt-3 max-w-3xl leading-7 text-muted">{post.summary}</p>
+                  <p className="mt-3 max-w-3xl leading-7 text-muted">{post.excerpt}</p>
                 </div>
                 <ArrowRight className="mt-2 h-5 w-5 shrink-0 text-muted transition group-hover:translate-x-1 group-hover:text-brand-600 dark:group-hover:text-brand-300" />
               </div>

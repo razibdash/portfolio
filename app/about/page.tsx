@@ -6,11 +6,11 @@ import { Reveal } from '@/components/motion/Reveal';
 
 export const metadata: Metadata = {
   title: 'About',
-  description: 'Professional summary, journey, skills, and goals of Razib Dash.'
+  description: 'Professional summary, CSE background, software engineering journey, skills, and goals of Razib Dash.'
 };
 
 const cards = [
-  { title: 'Developer mindset', icon: Code2, copy: 'I care about readable code, clean architecture, fast interfaces, and user journeys that feel obvious without needing extra explanation.' },
+  { title: 'Software engineering mindset', icon: Code2, copy: 'My CSE background helps me think through data structures, architecture, readable code, performance, and maintainable product systems.' },
   { title: 'AI curiosity', icon: BrainCircuit, copy: 'I enjoy turning AI concepts into useful tools, from intelligent dashboards to small automation systems that reduce repetitive work.' },
   { title: 'Product thinking', icon: Target, copy: 'I look beyond features and think about the problem, the user, the business value, and the simplest version that can be shipped well.' },
   { title: 'Growth direction', icon: Rocket, copy: 'My goal is to grow into a strong full-stack engineer who can build production-grade AI-powered applications end to end.' }
@@ -27,10 +27,10 @@ export default function AboutPage() {
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-600 dark:text-brand-300">Professional Summary</p>
             <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">Razib Dash</h2>
             <p className="mt-5 leading-8 text-muted">
-              I am a Software Developer and AI enthusiast with a strong interest in building modern web applications, full-stack platforms, and intelligent systems. I enjoy working where clean interface design meets strong engineering logic.
+              I am a Software Engineer, CSE graduate from Metropolitan University Bangladesh, and AI enthusiast with a strong interest in building modern web applications, full-stack platforms, and intelligent systems. I enjoy working where clean interface design meets strong engineering logic.
             </p>
             <p className="mt-4 leading-8 text-muted">
-              My current direction is to strengthen my skills in production-level frontend engineering, backend APIs, database design, authentication, deployment, and AI-powered product development.
+              My computer science foundation helps me approach frontend engineering, backend APIs, database design, authentication, deployment, and AI-powered product development with structured problem solving.
             </p>
           </div>
         </Reveal>
@@ -53,7 +53,7 @@ export default function AboutPage() {
           <p className="text-sm font-semibold uppercase tracking-[0.3em] text-blue-100">Journey</p>
           <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">From learning fundamentals to building polished applications.</h2>
           <p className="mt-5 max-w-4xl leading-8 text-blue-50">
-            My journey is built around consistent practice: learning core programming concepts, building real interfaces, connecting APIs, improving project structure, and exploring how AI can make software more useful. I prefer steady improvement over shortcuts, and I aim to build work that can be understood, maintained, and trusted.
+            My journey started with CSE fundamentals at Metropolitan University Bangladesh and grew through consistent practice: learning core programming concepts, building real interfaces, connecting APIs, improving project structure, and exploring how AI can make software more useful. I prefer steady improvement over shortcuts, and I aim to build work that can be understood, maintained, and trusted.
           </p>
         </div>
       </Reveal>

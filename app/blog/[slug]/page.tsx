@@ -7,6 +7,12 @@ import { Container } from '@/components/ui/Container';
 import { Reveal } from '@/components/motion/Reveal';
 import { blogs } from '@/data/blogs';
 import { mdxComponents } from '@/mdx-components';
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  JsonLd,
+} from '@/lib/seo';
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -21,15 +27,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = blogs.find((item) => item.slug === slug);
   if (!post) return { title: 'Blog Not Found' };
 
-  return {
-    title: post.title,
-    description: post.summary,
-    openGraph: {
-      title: `${post.title} | Razib Dash`,
-      description: post.summary,
-      type: 'article'
-    }
-  };
+  return createPageMetadata({
+    title: post.seoTitle,
+    description: post.metaDescription,
+    path: `/blog/${post.slug}`,
+    type: 'article',
+    keywords: [post.category, post.tag],
+  });
 }
 
 export default async function BlogDetailsPage({ params }: Props) {
@@ -38,8 +42,40 @@ export default async function BlogDetailsPage({ params }: Props) {
 
   if (!post) notFound();
 
+  const blogPostingJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    description: post.metaDescription,
+    datePublished: post.publishedAt,
+    dateModified: post.publishedAt,
+    mainEntityOfPage: absoluteUrl(`/blog/${post.slug}`),
+    author: {
+      '@type': 'Person',
+      name: 'Razib Dash',
+      url: absoluteUrl('/'),
+    },
+    publisher: {
+      '@type': 'Person',
+      name: 'Razib Dash',
+      url: absoluteUrl('/'),
+    },
+    image: absoluteUrl('/og-image.png'),
+    articleSection: post.category,
+  };
+
   return (
     <Container className="py-14 md:py-20">
+      <JsonLd
+        data={[
+          blogPostingJsonLd,
+          breadcrumbJsonLd([
+            { name: 'Home', path: '/' },
+            { name: 'Blog', path: '/blog' },
+            { name: post.title, path: `/blog/${post.slug}` },
+          ]),
+        ]}
+      />
       <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-brand-600 dark:hover:text-brand-300" data-cursor="Open">
         <ArrowLeft className="h-4 w-4" /> Back to blog
       </Link>

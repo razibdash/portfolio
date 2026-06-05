@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -30,6 +31,14 @@ import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { ProjectBadges } from "@/components/projects/ProjectBadges";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
+import { createPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = createPageMetadata({
+  title: "AI Web Developer for Websites, Dashboards & Automation",
+  description:
+    "Hire Razib Dash, a freelance full-stack Software Engineer and AI web developer in Bangladesh building ecommerce websites, travel websites, clinic EMR software, AI chatbots, business dashboards, custom web apps, and automation tools for local and international clients.",
+  path: "/",
+});
 
 const highlights = [
   { label: "Business-ready builds", value: "07+", icon: Layers3 },
@@ -148,12 +157,14 @@ export default function HomePage() {
                 Razib Dash
               </h1>
               <p className="mt-5 text-xl font-medium text-brand-700 dark:text-brand-300 md:text-2xl">
-                Software Developer | AI Integration Specialist
+                Software Engineer | CSE Graduate | AI Integration Specialist
               </p>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
-                I help businesses launch Ecommerce website, Travel website,
-                Clinic/EMR system, AI chatbot, Business dashboard, and Custom
-                web app solutions that are fast, responsive, and useful.
+                I am a Software Engineer and CSE graduate from Metropolitan
+                University Bangladesh. I help businesses launch Ecommerce
+                website, Travel website, Clinic/EMR system, AI chatbot,
+                Business dashboard, and Custom web app solutions that are fast,
+                responsive, and useful.
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
                 <MagneticButton

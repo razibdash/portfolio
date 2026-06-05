@@ -16,6 +16,12 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FlowDiagram } from "@/components/projects/FlowDiagram";
 import { ProjectBadges } from "@/components/projects/ProjectBadges";
 import { projects, type ProjectLink } from "@/data/projects";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  JsonLd,
+} from "@/lib/seo";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -75,17 +81,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = projects.find((item) => item.slug === slug);
   if (!project) return { title: "Project Not Found" };
 
-  return {
-    title: project.title,
-    description: project.summary,
-    openGraph: {
-      title: `${project.title} | Razib Dash`,
-      description: project.summary,
-      images: [
-        { url: project.image, width: 1200, height: 700, alt: project.title },
-      ],
-    },
-  };
+  return createPageMetadata({
+    title: `${project.title} Case Study`,
+    description: `${project.summary} Case study by Razib Dash covering problem, role, features, tech stack, and full-stack development approach.`,
+    path: `/projects/${project.slug}`,
+    image: project.image,
+    keywords: [
+      project.category,
+      project.status,
+      ...project.badges,
+      ...project.filters,
+      ...project.stack,
+      "Project case study",
+    ],
+  });
 }
 
 export default async function ProjectDetailsPage({ params }: Props) {
@@ -95,9 +104,36 @@ export default async function ProjectDetailsPage({ params }: Props) {
   if (!project) notFound();
 
   const { caseStudy } = project;
+  const projectJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    headline: `${project.title} Case Study`,
+    description: project.description,
+    url: absoluteUrl(`/projects/${project.slug}`),
+    image: absoluteUrl(project.image),
+    keywords: [...project.badges, ...project.filters, ...project.stack].join(", "),
+    creator: {
+      "@type": "Person",
+      name: "Razib Dash",
+      url: absoluteUrl("/"),
+    },
+    about: project.features,
+    programmingLanguage: project.stack,
+  };
 
   return (
     <Container className="py-14 md:py-20">
+      <JsonLd
+        data={[
+          projectJsonLd,
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Projects", path: "/projects" },
+            { name: project.title, path: `/projects/${project.slug}` },
+          ]),
+        ]}
+      />
       <Link
         href="/projects"
         className="inline-flex items-center gap-2 text-sm font-semibold text-muted transition hover:text-brand-600 focus:outline-none focus:ring-2 focus:ring-brand-500/40 dark:hover:text-brand-300"
@@ -281,6 +317,32 @@ export default async function ProjectDetailsPage({ params }: Props) {
           <p className="mt-5 max-w-4xl leading-8 text-blue-50">
             {caseStudy.result}
           </p>
+        </section>
+      </Reveal>
+
+      <Reveal>
+        <section className="mt-8 rounded-[2rem] border border-line bg-white/70 p-8 shadow-soft backdrop-blur dark:bg-slate-950/50 md:p-10">
+          <div className="grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
+            <div>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-brand-600 dark:text-brand-300">
+                Build Something Similar
+              </p>
+              <h2 className="mt-4 font-display text-3xl font-semibold tracking-tight">
+                Need a custom web app, dashboard, AI chatbot, or automation tool?
+              </h2>
+              <p className="mt-4 max-w-2xl leading-8 text-muted">
+                Contact me to discuss a project like {project.title}, or a
+                custom solution for your business workflow.
+              </p>
+            </div>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-600 px-5 py-3 text-sm font-semibold text-white shadow-glow transition hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-500/40"
+              data-cursor="Open"
+            >
+              Start a Project <ArrowLeft className="h-4 w-4 rotate-180" />
+            </Link>
+          </div>
         </section>
       </Reveal>
     </Container>

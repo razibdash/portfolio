@@ -42,18 +42,25 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/motion/Reveal";
 import { StaggerGroup } from "@/components/motion/StaggerGroup";
 import { LeadGenerationSections } from "@/components/lead/LeadGenerationSections";
+import {
+  absoluteUrl,
+  breadcrumbJsonLd,
+  createPageMetadata,
+  JsonLd,
+} from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Services",
+export const metadata: Metadata = createPageMetadata({
+  title: "Web Development, AI Chatbot, EMR & Automation Services",
   description:
-    "Websites, web apps, dashboards, AI tools, automation systems, ecommerce websites, travel websites, and clinic EMR software services by Razib Dash.",
-};
+    "Services by Razib Dash, an AI web developer in Bangladesh offering ecommerce website development, travel website development, clinic / EMR software development, AI chatbot development, business dashboards, custom web apps, and AI automation tools.",
+  path: "/services",
+});
 
 const services = [
   {
     title: "Ecommerce Website",
     description:
-      "Online store with products, cart, checkout, order management, and admin panel.",
+      "Ecommerce Website Development for online stores with products, cart, checkout, order management, and admin panel.",
     icon: ShoppingCart,
     features: [
       "Product catalog",
@@ -66,7 +73,7 @@ const services = [
   {
     title: "Travel Website",
     description:
-      "Travel agency website with tour packages, booking forms, gallery, and inquiry system.",
+      "Travel Website Development for agencies with tour packages, booking forms, gallery, destination pages, and inquiry system.",
     icon: Plane,
     features: [
       "Tour package listing",
@@ -79,7 +86,7 @@ const services = [
   {
     title: "Clinic / EMR Software",
     description:
-      "Healthcare system for clinics to manage patients, appointments, prescriptions, and reports.",
+      "Clinic / EMR Software Development for clinics to manage patients, appointments, prescriptions, medical records, and reports.",
     icon: HeartPulse,
     features: [
       "Patient management",
@@ -92,7 +99,7 @@ const services = [
   {
     title: "AI Chatbot",
     description:
-      "Smart chatbot for websites, support, FAQs, lead collection, and business automation.",
+      "AI Chatbot Development for websites, support, FAQs, lead collection, internal help, and business automation.",
     icon: Bot,
     features: [
       "OpenAI API integration",
@@ -105,7 +112,7 @@ const services = [
   {
     title: "Business Dashboard",
     description:
-      "Custom dashboard for sales, customers, invoices, reports, and business analytics.",
+      "Business Dashboard Development for sales, customers, invoices, reports, operations, and business analytics.",
     icon: LayoutDashboard,
     features: [
       "Login system",
@@ -118,7 +125,7 @@ const services = [
   {
     title: "Custom Web App",
     description:
-      "Full-stack web application with frontend, backend, database, authentication, and deployment.",
+      "Custom Web App Development with frontend, backend, database, authentication, API integrations, and deployment.",
     icon: BriefcaseBusiness,
     features: [
       "Frontend development",
@@ -131,7 +138,7 @@ const services = [
   {
     title: "AI Automation Tools",
     description:
-      "Automation tools for documents, forms, emails, workflows, and repetitive business tasks.",
+      "AI Automation Tools for documents, forms, emails, workflows, browser tasks, and repetitive business processes.",
     icon: Workflow,
     features: [
       "Document extraction",
@@ -340,35 +347,74 @@ const pricingPackages = [
 
 const faqs = [
   {
-    question: "How long does a project take?",
+    question: "How long does a website project take?",
     answer:
-      "A landing page can often be completed in a few days, while ecommerce, dashboard, EMR, and custom web app projects depend on feature scope and integrations.",
+      "A landing page can often be completed in a few days. Business websites, ecommerce websites, dashboards, clinic EMR systems, and custom web apps depend on features, timeline, content, and integrations.",
   },
   {
-    question: "Do you provide deployment?",
+    question: "Do you build ecommerce websites?",
     answer:
-      "Yes. I can help deploy the project, configure the production environment, connect domains, and prepare the app for real users.",
+      "Yes. I build ecommerce websites with product listings, cart and checkout flows, order management, payment integration, responsive UI, and admin dashboards.",
   },
   {
-    question: "Can you build AI features?",
+    question: "Can you build AI chatbots?",
     answer:
-      "Yes. I can integrate AI chatbots, OpenAI API features, document tools, workflow automation, and practical AI assistants for business use cases.",
+      "Yes. I build AI chatbots for website support, FAQs, lead capture, internal assistance, document Q&A, and practical business automation workflows.",
   },
   {
-    question: "Do you provide support after delivery?",
+    question: "Do you build clinic or EMR software?",
     answer:
-      "Yes. I provide support after delivery for fixes, improvements, small updates, and deployment-related help.",
+      "Yes. I can build clinic and EMR software features such as patient management, appointment scheduling, prescriptions, medical records, billing, reports, and dashboard workflows.",
   },
   {
-    question: "How do I start a project?",
+    question: "Do you provide deployment and support?",
     answer:
-      "Contact me with your idea, goals, timeline, and must-have features. I will review the scope and suggest the best starting plan.",
+      "Yes. I help deploy projects, configure production environments, connect domains, and provide post-launch support for bug fixes, minor updates, performance checks, and deployment help.",
   },
 ];
+
+const servicesFaqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer,
+    },
+  })),
+};
+
+const servicesJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "AI Web Development, Ecommerce, EMR, Dashboard, Chatbot, and Automation Services",
+  url: absoluteUrl("/services"),
+  provider: {
+    "@type": "Person",
+    name: "Razib Dash",
+    url: absoluteUrl("/"),
+  },
+  areaServed: ["Bangladesh", "Remote", "International"],
+  serviceType: services.map((service) => service.title),
+  description:
+    "Full-stack web development and AI automation services for ecommerce websites, travel websites, clinic EMR software, AI chatbots, business dashboards, custom web apps, and automation tools.",
+};
 
 export default function ServicesPage() {
   return (
     <>
+      <JsonLd
+        data={[
+          servicesJsonLd,
+          servicesFaqJsonLd,
+          breadcrumbJsonLd([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+          ]),
+        ]}
+      />
       <Container className="py-16 md:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-[0.95fr_1.05fr]">
           <Reveal>
@@ -383,6 +429,11 @@ export default function ServicesPage() {
               <p className="mt-6 max-w-3xl text-lg leading-8 text-muted md:text-xl">
                 I build websites, web apps, dashboards, AI tools, and automation
                 systems for businesses.
+              </p>
+              <p className="mt-4 max-w-3xl leading-7 text-muted">
+                I work as a web developer in Bangladesh and a remote freelance
+                full-stack developer for international clients who need clean,
+                reliable, AI-ready digital products.
               </p>
               <div className="mt-9 flex flex-wrap gap-4">
                 <MagneticButton href="/contact" label="Start a Project" />

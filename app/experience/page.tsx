@@ -6,15 +6,16 @@ import { Reveal } from '@/components/motion/Reveal';
 
 export const metadata: Metadata = {
   title: 'Experience',
-  description: 'Professional experience timeline of Razib Dash.'
+  description: 'Software engineering experience timeline of Razib Dash, CSE graduate from Metropolitan University Bangladesh.'
 };
 
 const timeline = [
   {
-    role: 'Junior Software Developer',
+    role: 'Software Engineer',
     company: 'Professional Development Track',
     period: 'Current',
     details: [
+      'Apply CSE fundamentals from Metropolitan University Bangladesh to practical software engineering work.',
       'Build and maintain responsive web interfaces with clean component architecture.',
       'Work with APIs, form validation, reusable UI patterns, and data-driven layouts.',
       'Explore AI-assisted features, automation workflows, and practical product improvements.',
@@ -26,7 +27,7 @@ const timeline = [
 export default function ExperiencePage() {
   return (
     <Container className="py-16 md:py-24">
-      <SectionHeading eyebrow="Experience" title="Focused growth as a Junior Software Developer." description="A concise professional timeline that highlights practical responsibilities, engineering habits, and direction." />
+      <SectionHeading eyebrow="Experience" title="Focused growth as a Software Engineer." description="A concise professional timeline that highlights my CSE background, practical responsibilities, engineering habits, and direction." />
 
       <div className="mt-14 border-l border-line pl-6 md:pl-10">
         {timeline.map((item, index) => (

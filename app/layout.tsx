@@ -12,6 +12,14 @@ import { ScrollProgress } from "@/components/ui/ScrollProgress";
 import { BackToTop } from "@/components/ui/BackToTop";
 import { WhatsAppFloatingButton } from "@/components/lead/WhatsAppFloatingButton";
 import { ExitIntentPopup } from "@/components/lead/ExitIntentPopup";
+import {
+  defaultOgImage,
+  JsonLd,
+  personJsonLd,
+  professionalServiceJsonLd,
+  siteUrl,
+  websiteJsonLd,
+} from "@/lib/seo";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,47 +34,54 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://razibdash.dev"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Razib Dash | Software Developer & AI Enthusiast",
+    default: "Razib Dash | AI Web Developer & Full-Stack Developer",
     template: "%s | Razib Dash",
   },
   description:
-    "Premium developer portfolio of Razib Dash, Software Developer and AI Enthusiast focused on modern web apps, AI products, and full-stack systems.",
+    "Razib Dash is a Software Engineer, CSE graduate from Metropolitan University Bangladesh, AI web developer, and freelance full-stack developer in Bangladesh building ecommerce websites, travel websites, AI chatbots, clinic EMR software, dashboards, custom web apps, and automation tools.",
   keywords: [
     "Razib Dash",
-    "Software Developer",
-    "Software Engineer",
-    "AI Enthusiast",
-    "Generative AI",
-    "Next.js Developer",
+    "AI web developer",
     "Full Stack Developer",
+    "Ecommerce website developer",
+    "Travel website developer",
+    "AI chatbot developer",
+    "Clinic EMR software developer",
+    "Business dashboard developer",
+    "Custom web app developer",
+    "AI automation developer",
+    "Web developer in Bangladesh",
+    "AI developer in Bangladesh",
+    "Freelance full-stack developer",
+    "Remote web developer for international clients",
   ],
   authors: [{ name: "Razib Dash" }],
   creator: "Razib Dash",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://razibdash.dev",
-    title: "Razib Dash | Software Developer & AI Enthusiast",
+    url: siteUrl,
+    title: "Razib Dash | AI Web Developer & Full-Stack Developer",
     description:
-      "Modern, recruiter-ready developer portfolio showcasing projects, skills, experience, certificates, and technical writing.",
+      "Client-focused portfolio of Razib Dash, a Software Engineer and CSE graduate from Metropolitan University Bangladesh, for websites, web apps, dashboards, AI chatbots, clinic EMR software, ecommerce websites, travel websites, and automation tools.",
     siteName: "Razib Dash Portfolio",
     images: [
       {
-        url: "/og-image.svg",
+        url: defaultOgImage,
         width: 1200,
         height: 630,
-        alt: "Razib Dash Portfolio",
+        alt: "Razib Dash AI web developer portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Razib Dash | Software Developer & AI Enthusiast",
+    title: "Razib Dash | AI Web Developer & Full-Stack Developer",
     description:
-      "Software Developer focused on AI-powered and full-stack web applications.",
-    images: ["/og-image.svg"],
+      "Full-stack and AI web developer for ecommerce, travel, clinic EMR, dashboard, chatbot, custom web app, and automation projects.",
+    images: [defaultOgImage],
   },
   icons: {
     icon: "/favicon.svg",
@@ -93,6 +108,7 @@ export default function RootLayout({
           <ScrollProgress />
           <CustomCursor />
           <Navbar />
+          <JsonLd data={[personJsonLd, professionalServiceJsonLd, websiteJsonLd]} />
           <CommandPalette />
           <ChatbotWidget />
           <main className="relative z-10 min-h-screen pt-24">{children}</main>

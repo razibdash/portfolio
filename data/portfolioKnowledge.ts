@@ -6,16 +6,20 @@ import { skills } from "@/data/skills";
 export const portfolioKnowledge = {
   profile: {
     name: "Razib Dash",
-    role: "Junior Software Developer / AI Enthusiast",
+    role: "Software Engineer / CSE Graduate / AI Enthusiast",
+    education: {
+      degree: "BSc in Computer Science and Engineering (CSE)",
+      university: "Metropolitan University Bangladesh",
+    },
     currentPosition: {
-      title: "Junior Software Developer",
+      title: "Software Engineer",
       company: "AI Health Tech",
       location: "Sylhet, Bangladesh",
     },
     summary:
-      "Razib Dash is a Junior Software Developer at AI Health Tech, Sylhet, Bangladesh. He is focused on full-stack development, healthcare software, AI integrations, automation, dashboards, and clean product thinking.",
+      "Razib Dash is a Software Engineer, CSE graduate from Metropolitan University Bangladesh, and AI enthusiast based in Sylhet, Bangladesh. He is focused on full-stack development, healthcare software, AI integrations, automation, dashboards, and clean product thinking.",
     targetRoles: [
-      "Junior Software Developer",
+      "Software Engineer",
       "Full Stack Developer",
       "AI-focused Developer",
     ],
@@ -61,13 +65,14 @@ export const portfolioKnowledge = {
   },
   experience: [
     {
-      role: "Junior Software Developer",
+      role: "Software Engineer",
       company: "AI Health Tech",
       location: "Sylhet, Bangladesh",
       context:
-        "Professional software development role focused on healthcare technology, full-stack development, and AI-powered product features.",
+        "Professional software engineering role focused on healthcare technology, full-stack development, and AI-powered product features.",
       details: [
-        "Work as a Junior Software Developer at AI Health Tech in Sylhet, Bangladesh.",
+        "Work as a Software Engineer at AI Health Tech in Sylhet, Bangladesh.",
+        "Apply CSE fundamentals from Metropolitan University Bangladesh to practical product engineering.",
         "Build and maintain responsive web interfaces with clean component architecture.",
         "Work with APIs, form validation, reusable UI patterns, and data-driven layouts.",
         "Contribute to healthcare software features, dashboards, EMR-related systems, and workflow improvements.",
