@@ -3,11 +3,13 @@ import { BrainCircuit, Code2, Rocket, Target } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/motion/Reveal';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'About',
-  description: 'Professional summary, CSE background, software engineering journey, skills, and goals of Razib Dash.'
-};
+  description: 'Professional summary, CSE background, software engineering journey, skills, and goals of Razib Dash.',
+  path: '/about',
+});
 
 const cards = [
   { title: 'Software engineering mindset', icon: Code2, copy: 'My CSE background helps me think through data structures, architecture, readable code, performance, and maintainable product systems.' },

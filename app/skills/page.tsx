@@ -3,11 +3,13 @@ import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/motion/Reveal';
 import { skills } from '@/data/skills';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'Skills',
-  description: 'Frontend, backend, AI, and tooling skill categories of Razib Dash.'
-};
+  description: 'Frontend, backend, AI, and tooling skill categories of Razib Dash.',
+  path: '/skills',
+});
 
 export default function SkillsPage() {
   return (

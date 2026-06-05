@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const siteUrl = "https://razibdash.com";
+export const siteUrl = "https://www.razibdash.com";
 export const siteName = "Razib Dash Portfolio";
 export const defaultOgImage = "/og-image.png";
 

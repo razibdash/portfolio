@@ -3,11 +3,13 @@ import { BriefcaseBusiness } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/motion/Reveal';
+import { createPageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = createPageMetadata({
   title: 'Experience',
-  description: 'Software engineering experience timeline of Razib Dash, CSE graduate from Metropolitan University Bangladesh.'
-};
+  description: 'Software engineering experience timeline of Razib Dash, CSE graduate from Metropolitan University Bangladesh.',
+  path: '/experience',
+});
 
 const timeline = [
   {
