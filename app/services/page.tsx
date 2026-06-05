@@ -4,19 +4,28 @@ import {
   ArrowRight,
   Bot,
   BriefcaseBusiness,
+  Bug,
   CheckCircle2,
   ClipboardList,
+  CloudUpload,
   Code2,
   FileCheck2,
+  Gauge,
   HeartPulse,
   Image as ImageIcon,
   LayoutDashboard,
+  LifeBuoy,
   ListChecks,
+  LockKeyhole,
+  MessageCircle,
   MessagesSquare,
+  MonitorSmartphone,
   PackageCheck,
   Plane,
+  Quote,
   Rocket,
   SearchCheck,
+  Server,
   Settings2,
   ShieldCheck,
   ShoppingCart,
@@ -26,6 +35,7 @@ import {
   Workflow,
 } from "lucide-react";
 import { Container } from "@/components/ui/Container";
+import { IconInfoCard } from "@/components/ui/IconInfoCard";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { PricingCard } from "@/components/ui/PricingCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -133,13 +143,110 @@ const services = [
 ];
 
 const processSteps = [
-  { title: "Discovery", icon: SearchCheck },
-  { title: "Planning", icon: ClipboardList },
-  { title: "UI/UX", icon: ImageIcon },
-  { title: "Development", icon: Code2 },
-  { title: "Testing", icon: TestTube2 },
-  { title: "Deployment", icon: Rocket },
-  { title: "Support", icon: ShieldCheck },
+  {
+    title: "Discovery Call",
+    description:
+      "We discuss your goals, audience, current problems, and what success should look like.",
+    icon: SearchCheck,
+  },
+  {
+    title: "Requirement Analysis",
+    description:
+      "I organize the features, priorities, user flows, integrations, and project scope.",
+    icon: ClipboardList,
+  },
+  {
+    title: "UI/UX Planning",
+    description:
+      "I plan a clean interface and responsive structure before development starts.",
+    icon: ImageIcon,
+  },
+  {
+    title: "Development",
+    description:
+      "I build the frontend, backend, database, APIs, and AI features needed for the project.",
+    icon: Code2,
+  },
+  {
+    title: "Testing",
+    description:
+      "I check forms, responsiveness, key workflows, errors, and browser behavior.",
+    icon: TestTube2,
+  },
+  {
+    title: "Deployment",
+    description:
+      "I prepare the production build, deploy the project, and help connect the domain.",
+    icon: Rocket,
+  },
+  {
+    title: "Support",
+    description:
+      "I stay available for fixes, small updates, deployment help, and post-launch questions.",
+    icon: ShieldCheck,
+  },
+];
+
+const trustCards = [
+  {
+    title: "Clear communication",
+    description:
+      "You get simple updates, direct answers, and a clear understanding of what is being built.",
+    icon: MessageCircle,
+  },
+  {
+    title: "Clean and responsive UI",
+    description:
+      "Interfaces are designed to look polished and work smoothly across mobile, tablet, and desktop.",
+    icon: MonitorSmartphone,
+  },
+  {
+    title: "Full-stack development",
+    description:
+      "I can handle frontend, backend, database, authentication, APIs, and deployment.",
+    icon: Server,
+  },
+  {
+    title: "AI integration experience",
+    description:
+      "I build practical AI features such as chatbots, automation tools, and smart workflows.",
+    icon: Bot,
+  },
+  {
+    title: "Secure and scalable code",
+    description:
+      "I focus on clean structure, validation, maintainability, and sensible security basics.",
+    icon: LockKeyhole,
+  },
+  {
+    title: "Deployment and post-launch support",
+    description:
+      "I help launch the project and support small fixes or improvements after delivery.",
+    icon: LifeBuoy,
+  },
+];
+
+const supportPoints = [
+  { title: "Bug fixing", icon: Bug },
+  { title: "Minor updates", icon: Settings2 },
+  { title: "Deployment help", icon: CloudUpload },
+  { title: "Performance check", icon: Gauge },
+  { title: "Basic documentation", icon: FileCheck2 },
+];
+
+const testimonials = [
+  {
+    quote: "Great communication and clean work.",
+    name: "Client feedback",
+  },
+  {
+    quote: "Delivered the project with proper explanation.",
+    name: "Project collaborator",
+  },
+  {
+    quote: "Understands both frontend and backend very well.",
+    name: "Technical teammate",
+  },
 ];
 
 const pricingPackages = [
@@ -367,33 +474,54 @@ export default function ServicesPage() {
 
       <Container className="py-20">
         <SectionHeading
-          eyebrow="Process"
-          title="How I Work"
-          description="A simple project flow keeps the work clear from first discussion to launch and support."
-          centered
+          eyebrow="Trust"
+          title="Why Clients Can Trust Me"
+          description="I focus on clear delivery, reliable engineering, and practical support so the project is useful after launch."
         />
 
-        <StaggerGroup className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-7">
-          {processSteps.map((step, index) => (
-            <div
-              key={step.title}
-              className="rounded-3xl border border-line bg-white/65 p-5 text-center shadow-sm backdrop-blur dark:bg-slate-950/45"
-            >
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-700 dark:text-brand-300">
-                <step.icon className="h-6 w-6" />
-              </div>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.24em] text-muted">
-                Step {index + 1}
-              </p>
-              <h3 className="mt-2 font-display text-lg font-semibold">
-                {step.title}
-              </h3>
-            </div>
+        <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {trustCards.map((item) => (
+            <IconInfoCard key={item.title} {...item} />
           ))}
         </StaggerGroup>
       </Container>
 
       <section className="border-y border-line bg-white/45 py-20 backdrop-blur dark:bg-slate-950/30">
+        <Container>
+          <SectionHeading
+            eyebrow="Process"
+            title="My Work Process"
+            description="A clear step-by-step workflow keeps the project organized from first discussion to post-launch support."
+            centered
+          />
+
+          <StaggerGroup className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+            {processSteps.map((step, index) => (
+              <div
+                key={step.title}
+                className="h-full rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur dark:bg-slate-950/45"
+              >
+                <div className="flex items-center justify-between gap-4">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-700 dark:text-brand-300">
+                    <step.icon className="h-6 w-6" />
+                  </span>
+                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-muted">
+                    Step {index + 1}
+                  </span>
+                </div>
+                <h3 className="mt-5 font-display text-xl font-semibold">
+                  {step.title}
+                </h3>
+                <p className="mt-3 text-sm leading-6 text-muted">
+                  {step.description}
+                </p>
+              </div>
+            ))}
+          </StaggerGroup>
+        </Container>
+      </section>
+
+      <section className="py-20">
         <Container>
           <SectionHeading
             eyebrow="Pricing"
@@ -422,6 +550,78 @@ export default function ServicesPage() {
           </Reveal>
         </Container>
       </section>
+
+      <section className="border-y border-line bg-white/45 py-20 backdrop-blur dark:bg-slate-950/30">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[1.15fr_0.85fr]">
+            <Reveal>
+              <div className="h-full rounded-3xl border border-line bg-white/65 p-7 shadow-soft backdrop-blur dark:bg-slate-950/45 md:p-8">
+                <div className="flex items-center gap-3">
+                  <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-500/10 text-brand-700 dark:text-brand-300">
+                    <LifeBuoy className="h-6 w-6" />
+                  </span>
+                  <h2 className="font-display text-3xl font-semibold tracking-[-0.03em]">
+                    Support After Delivery
+                  </h2>
+                </div>
+                <p className="mt-5 max-w-3xl text-lg leading-8 text-muted">
+                  I provide post-launch support, bug fixing, small updates, and
+                  deployment help after project delivery.
+                </p>
+                <div className="mt-7 grid gap-3 sm:grid-cols-2">
+                  {supportPoints.map((item) => (
+                    <div
+                      key={item.title}
+                      className="flex items-center gap-3 rounded-2xl border border-line bg-paper/70 p-4 text-sm font-semibold text-muted"
+                    >
+                      <item.icon className="h-5 w-5 shrink-0 text-brand-600 dark:text-brand-300" />
+                      {item.title}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </Reveal>
+
+            <Reveal delay={0.08}>
+              <div className="h-full rounded-3xl border border-line bg-brand-600 p-7 text-white shadow-glow md:p-8">
+                <ShieldCheck className="h-8 w-8 text-white/80" />
+                <h2 className="mt-5 font-display text-3xl font-semibold tracking-[-0.03em]">
+                  Your Project Details Stay Private
+                </h2>
+                <p className="mt-5 text-lg leading-8 text-white/80">
+                  I respect client privacy and keep project details, business
+                  ideas, and data confidential.
+                </p>
+              </div>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <Container className="py-20">
+        <SectionHeading
+          eyebrow="Testimonials"
+          title="What People Say"
+          description="A few placeholder notes until more client testimonials are available."
+        />
+
+        <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3">
+          {testimonials.map((testimonial) => (
+            <div
+              key={testimonial.quote}
+              className="h-full rounded-3xl border border-line bg-white/65 p-6 shadow-sm backdrop-blur dark:bg-slate-950/45"
+            >
+              <Quote className="h-7 w-7 text-brand-600 dark:text-brand-300" />
+              <p className="mt-5 text-lg font-medium leading-8">
+                &quot;{testimonial.quote}&quot;
+              </p>
+              <p className="mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-muted">
+                {testimonial.name}
+              </p>
+            </div>
+          ))}
+        </StaggerGroup>
+      </Container>
 
       <Container className="py-20">
         <SectionHeading
@@ -459,24 +659,19 @@ export default function ServicesPage() {
                     Ready When You Are
                   </p>
                   <h2 className="mt-4 font-display text-4xl font-semibold tracking-[-0.04em] md:text-5xl">
-                    Have a project in mind?
+                    Ready to build something reliable?
                   </h2>
                   <p className="mt-4 max-w-2xl text-lg leading-8 text-blue-50">
-                    Let&apos;s discuss your idea and build the right solution.
+                    Let&apos;s discuss your project and create a solution that
+                    works.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-3 md:justify-end">
                   <MagneticButton
                     href="/contact"
-                    label="Contact Me"
+                    label="Start a Project"
                     variant="secondary"
                     dataCursor="Open"
-                  />
-                  <MagneticButton
-                    href="/projects"
-                    label="View My Work"
-                    variant="ghost"
-                    dataCursor="View"
                   />
                 </div>
               </div>
