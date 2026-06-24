@@ -1,5 +1,21 @@
 import Link from "next/link";
-import { ArrowRight, Facebook, Github, Linkedin, Mail } from "lucide-react";
+import {
+  ArrowRight,
+  Dribbble,
+  Facebook,
+  Github,
+  Instagram,
+  Linkedin,
+  Mail,
+  Youtube,
+} from "lucide-react";
+import {
+  SiBehance,
+  SiBluesky,
+  SiCodeforces,
+  SiThreads,
+  SiTumblr,
+} from "react-icons/si";
 import { Container } from "@/components/ui/Container";
 
 const quickLinks = [
@@ -31,6 +47,46 @@ const socials = [
     icon: Facebook,
   },
   { href: "mailto:avrorazib@gmail.com", label: "Email", icon: Mail },
+  {
+    href: "https://www.instagram.com/razibdash",
+    label: "Instagram",
+    icon: Instagram,
+  },
+  {
+    href: "https://www.youtube.com/@razib-dash",
+    label: "YouTube",
+    icon: Youtube,
+  },
+  {
+    href: "https://www.tumblr.com/razibdash",
+    label: "Tumblr",
+    icon: SiTumblr,
+  },
+  {
+    href: "https://bsky.app/profile/razibdash.bsky.social",
+    label: "Bluesky",
+    icon: SiBluesky,
+  },
+  {
+    href: "https://www.threads.com/@razibdash",
+    label: "Threads",
+    icon: SiThreads,
+  },
+  {
+    href: "https://dribbble.com/razibdash",
+    label: "Dribbble",
+    icon: Dribbble,
+  },
+  {
+    href: "https://codeforces.com/profile/avronilrajib",
+    label: "Codeforces",
+    icon: SiCodeforces,
+  },
+  {
+    href: "https://www.behance.net/razibdash",
+    label: "Behance",
+    icon: SiBehance,
+  },
 ];
 
 export function Footer() {
@@ -104,7 +160,7 @@ export function Footer() {
             >
               avrorazib@gmail.com
             </Link>
-            <div className="mt-6 flex items-center gap-3">
+            <div className="mt-6 flex flex-wrap items-center gap-3">
               {socials.map((item) => (
                 <Link
                   key={item.label}
