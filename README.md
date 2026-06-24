@@ -40,7 +40,7 @@ npm start
 Update these files for your real portfolio content:
 
 - `data/projects.ts`
-- `data/blogs.ts`
+- `content/blog/*.mdx`
 - `data/certificates.ts`
 - `data/skills.ts`
 - `public/resume/razib-dash-resume.pdf`

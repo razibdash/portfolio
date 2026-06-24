@@ -4,7 +4,7 @@ import { CalendarDays, ArrowRight } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Reveal } from '@/components/motion/Reveal';
-import { blogs } from '@/data/blogs';
+import { getAllPosts } from '@/lib/blog';
 import { createPageMetadata } from '@/lib/seo';
 
 export const metadata: Metadata = createPageMetadata({
@@ -16,6 +16,8 @@ export const metadata: Metadata = createPageMetadata({
 });
 
 export default function BlogPage() {
+  const blogs = getAllPosts();
+
   return (
     <Container className="py-16 md:py-24">
       <SectionHeading eyebrow="Blog" title="Notes on software, AI, and building better products." description="Short technical writing that explains what I am learning, building, and improving." />

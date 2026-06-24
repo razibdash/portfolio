@@ -245,16 +245,16 @@ const supportPoints = [
 
 const testimonials = [
   {
-    quote: "Great communication and clean work.",
-    name: "Client feedback",
+    quote:
+      "Razib built our university management system end-to-end — admissions, attendance, and exams all tied together cleanly. He kept explaining the technical choices in plain language, which made the whole process stress-free.",
+    name: "Arnob Das",
+    role: "University Management System Client",
   },
   {
-    quote: "Delivered the project with proper explanation.",
-    name: "Project collaborator",
-  },
-  {
-    quote: "Understands both frontend and backend very well.",
-    name: "Technical teammate",
+    quote:
+      "We needed a learning management system our instructors could use without training. Razib delivered exactly that — clean course and quiz management, and fast turnaround whenever we asked for changes.",
+    name: "Mithila Dash",
+    role: "LMS Client",
   },
 ];
 
@@ -659,10 +659,10 @@ export default function ServicesPage() {
         <SectionHeading
           eyebrow="Testimonials"
           title="What People Say"
-          description="A few placeholder notes until more client testimonials are available."
+          description="Direct feedback from clients I've delivered projects for."
         />
 
-        <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-3">
+        <StaggerGroup className="mt-10 grid gap-6 md:grid-cols-2">
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.quote}
@@ -674,6 +674,9 @@ export default function ServicesPage() {
               </p>
               <p className="mt-5 text-sm font-semibold uppercase tracking-[0.22em] text-muted">
                 {testimonial.name}
+              </p>
+              <p className="mt-1 text-xs font-medium uppercase tracking-[0.18em] text-muted/70">
+                {testimonial.role}
               </p>
             </div>
           ))}

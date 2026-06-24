@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Poppins } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
@@ -120,6 +121,7 @@ export default function RootLayout({
           <WhatsAppFloatingButton />
           <ExitIntentPopup />
           <BackToTop />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

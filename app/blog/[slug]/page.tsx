@@ -2,10 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote/rsc';
+import remarkGfm from 'remark-gfm';
+import rehypePrettyCode from 'rehype-pretty-code';
 import { ArrowLeft, CalendarDays } from 'lucide-react';
 import { Container } from '@/components/ui/Container';
 import { Reveal } from '@/components/motion/Reveal';
-import { blogs } from '@/data/blogs';
+import { getAllPosts, getPostBySlug } from '@/lib/blog';
 import { mdxComponents } from '@/mdx-components';
 import {
   absoluteUrl,
@@ -18,13 +20,15 @@ type Props = {
   params: Promise<{ slug: string }>;
 };
 
+export const dynamicParams = false;
+
 export function generateStaticParams() {
-  return blogs.map((post) => ({ slug: post.slug }));
+  return getAllPosts().map((post) => ({ slug: post.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const post = blogs.find((item) => item.slug === slug);
+  const post = getPostBySlug(slug);
   if (!post) return { title: 'Blog Not Found' };
 
   return createPageMetadata({
@@ -38,7 +42,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogDetailsPage({ params }: Props) {
   const { slug } = await params;
-  const post = blogs.find((item) => item.slug === slug);
+  const post = getPostBySlug(slug);
 
   if (!post) notFound();
 
@@ -91,7 +95,18 @@ export default async function BlogDetailsPage({ params }: Props) {
           </div>
 
           <div className="prose-custom mt-10 rounded-[2rem] border border-line bg-white/75 p-7 shadow-sm backdrop-blur dark:bg-slate-950/50 md:p-10">
-            <MDXRemote source={post.content} components={mdxComponents} />
+            <MDXRemote
+              source={post.content}
+              components={mdxComponents}
+              options={{
+                mdxOptions: {
+                  remarkPlugins: [remarkGfm],
+                  rehypePlugins: [
+                    [rehypePrettyCode, { theme: "github-dark" }],
+                  ],
+                },
+              }}
+            />
           </div>
         </article>
       </Reveal>

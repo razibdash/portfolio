@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { blogs } from "@/data/blogs";
+import { getAllPosts } from "@/lib/blog";
 import { projects } from "@/data/projects";
 import { absoluteUrl } from "@/lib/seo";
 
@@ -16,6 +16,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/certificates",
   ];
   const now = new Date();
+  const blogs = getAllPosts();
 
   return [
     ...staticRoutes.map((route) => ({

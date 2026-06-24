@@ -1,7 +1,9 @@
-import { blogs } from "@/data/blogs";
+import { getAllPosts } from "@/lib/blog";
 import { certificates } from "@/data/certificates";
 import { projects } from "@/data/projects";
 import { skills } from "@/data/skills";
+
+const blogs = getAllPosts();
 
 export const portfolioKnowledge = {
   profile: {
