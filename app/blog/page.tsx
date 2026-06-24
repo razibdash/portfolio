@@ -21,7 +21,7 @@ export default function BlogPage() {
 
   return (
     <Container className="py-16 md:py-24">
-      <SectionHeading eyebrow="Blog" title="Notes on software, AI, and building better products." description="Short technical writing that explains what I am learning, building, and improving." />
+      <SectionHeading level="h1" eyebrow="Blog" title="Notes on software, AI, and building better products." description="Short technical writing that explains what I am learning, building, and improving." />
       <div className="mt-12 grid gap-6">
         {blogs.map((post, index) => (
           <Reveal key={post.slug} delay={index * 0.06}>

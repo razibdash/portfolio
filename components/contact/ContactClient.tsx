@@ -304,6 +304,7 @@ export function ContactClient() {
     <>
       <Container className="py-16 md:py-24">
         <SectionHeading
+          level="h1"
           eyebrow="Contact"
           title="Let's Build Something Together"
           description="Have a project idea? Tell me about your website, web app, dashboard, AI tool, or automation need."

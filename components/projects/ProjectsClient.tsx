@@ -26,6 +26,7 @@ export function ProjectsClient() {
   return (
     <Container className="py-16 md:py-24">
       <SectionHeading
+        level="h1"
         eyebrow="Projects"
         title="A portfolio grid with real product thinking behind every build."
         description="Filter by project type and open detailed pages with tech stack, screenshots, GitHub links, and live demos."

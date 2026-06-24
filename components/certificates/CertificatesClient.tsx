@@ -15,6 +15,7 @@ export function CertificatesClient() {
   return (
     <Container className="py-16 md:py-24">
       <SectionHeading
+        level="h1"
         eyebrow="Certificates"
         title="Proof of continuous learning and focused technical development."
         description="Click any certificate card to preview it in a clean modal lightbox."

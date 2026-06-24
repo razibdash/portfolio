@@ -137,6 +137,7 @@ export default function SkillsPage() {
           <Reveal>
             <div>
               <SectionHeading
+                level="h1"
                 eyebrow="Skills"
                 title="A technical toolkit for building useful web products."
                 description="Grouped by real product work: polished interfaces, dependable backend features, AI-assisted workflows, and the delivery habits that help projects ship cleanly."

@@ -29,7 +29,7 @@ const timeline = [
 export default function ExperiencePage() {
   return (
     <Container className="py-16 md:py-24">
-      <SectionHeading eyebrow="Experience" title="Focused growth as a Software Engineer." description="A concise professional timeline that highlights my CSE background, practical responsibilities, engineering habits, and direction." />
+      <SectionHeading level="h1" eyebrow="Experience" title="Focused growth as a Software Engineer." description="A concise professional timeline that highlights my CSE background, practical responsibilities, engineering habits, and direction." />
 
       <div className="mt-14 border-l border-line pl-6 md:pl-10">
         {timeline.map((item, index) => (
